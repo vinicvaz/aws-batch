@@ -2,7 +2,7 @@ import boto3
 import json
 
 
-class AWSBatch(object):
+class AWSBatchClient(object):
  
     def __init__(self, job_queue, job_definition, attempt_duration_seconds, **config):
 
@@ -22,9 +22,9 @@ class AWSBatch(object):
     
     def set_job_definition(self, job_definition):
         self.job_definition = job_definition
-    
+
     def set_attempt_duration(self, attempt_duration_seconds):
-        self.attempt_duration_secods = int(attempt_duration_seconds)
+        self.attempt_duration_secods = max(int(attempt_duration_seconds), 60)
 
     def run(self, job_name, entrypoint_command=None, environment_override=None, payload=None):
         if entrypoint_command is None:

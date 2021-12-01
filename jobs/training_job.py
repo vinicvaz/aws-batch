@@ -7,3 +7,5 @@ def train_job():
     print('Job args', request)
     time.sleep(10)
     print('Job finished')
+
+train_job()

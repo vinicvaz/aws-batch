@@ -20,6 +20,7 @@ def app():
         "target_name": "species_id"
     }
     batch_client_response = batch_client.run(
+        job_name='training-iris',
         entrypoint_command=entrypoint_command,
         payload=payload
     )

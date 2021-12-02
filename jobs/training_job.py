@@ -47,7 +47,7 @@ def train_job():
     output_df.to_csv(buffer, index=None)
 
     # Save validation Results in s3
-    upload_data_to_s3(buffer.getvalue(), 'test.csv', bucket)
+    upload_data_to_s3(buffer.getvalue(), 'validation_predictions.csv', bucket)
     print('Job Finished')
     return
 

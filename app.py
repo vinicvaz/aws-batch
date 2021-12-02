@@ -15,7 +15,9 @@ def app():
     # Payload to send through cli args
     # Entry point + payload length must be at most 8192
     payload = {
-        "payload_key": "payload_value"
+        "s3_bucket": 'aws-batch-tutorial',
+        "s3_path": 'iris.csv',
+        "target_name": "species_id"
     }
     batch_client_response = batch_client.run(
         entrypoint_command=entrypoint_command,
